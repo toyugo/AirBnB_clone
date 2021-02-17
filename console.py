@@ -116,5 +116,17 @@ class HBNBCommand(cmd.Cmd):
             setattr(old_storage[key], itemA[2], itemA[3])
             storage.save()
 
+    def do_count(self, line):
+        """
+        Count instance
+        """
+        if line in self.classes:
+            count = 0
+            old_storage = storage.all()
+            for k, v in old_storage.items():
+                if line == v.__class__.__name__:
+                    count += 1
+            print(count)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

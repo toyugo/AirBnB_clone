@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
                 del old_storage[key]
                 storage.save()
 
-    def do_show(self, arg):
+    def do_show(self, line):
         """
         Prints the string representation
         """
@@ -59,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
         elif (item[0] + "." + item[1]) not in storage.all():
             print("** no instance found **")
         else:
-            key = args[0] + "." + args[1]
+            key = item[0] + "." + item[1]
             if key in old_storage:
                 print(old_storage[key])
 

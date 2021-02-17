@@ -1,60 +1,99 @@
 #!/usr/bin/python3
+
 """
-Base model unittest
+Unittest for BaseModel class.
 """
 
 import unittest
 from models.base_model import BaseModel
+from datetime import datetime
+import uuid
 
 
 class TestBaseModel(unittest.TestCase):
     """
-    BaseModel unittest
+    Tests for BaseModel class
     """
 
-    def test_class(self):
-        """
-        test if the object is a type of BaseModel
-        """
+    def setUp(self):
+        """Set up"""
+        self.base1 = BaseModel()
 
-        obj = BaseModel()
-        self.assertEqual(type(obj), BaseModel)
+    def tearDown(self):
+        """Tears down"""
+        pass
 
-    def test_attr(self):
-        """
-        test attributs
-        """
+    def test_00_class_type(self):
+        """Test for correct class type"""
+        b = BaseModel()
+        self.assertEqual(b.__class__.__name__, "BaseModel")
 
-        obj = BaseModel()
-        obj.astring = "tata"
-        obj.alist = ["Hello", 19]
-        obj.anint = 24
-        obj.atuple = (4, "une tulipe")
-        self.assertNotEqual(obj.id, None)
-        self.assertNotEqual(obj.created_at, None)
-        self.assertNotEqual(obj.updated_at, None)
-        self.assertEqual(obj.astring, "tata")
-        self.assertEqual(obj.alist, ["Hello", 19])
-        self.assertEqual(obj.anint, 24)
-        self.assertEqual(obj.atuple, (4, "une tulipe"))
-        self.assertEqual(type(obj.atuple), tuple)
+    def test_01_no_args(self):
+        """Test for no arguments passed"""
+        b = BaseModel()
+        self.assertTrue(hasattr(b, "id"))
+        self.assertTrue(hasattr(b, "created_at"))
+        self.assertTrue(hasattr(b, "updated_at"))
 
-    def test_dict(self):
-        """
-        test dictionary and if the dictionary have correct keys
-        """
+    def test_02_correct_types(self):
+        """Test for correct types in args"""
+        b = BaseModel()
+        self.assertEqual(type(b.id), str)
+        self.assertEqual(b.created_at.__class__.__name__, "datetime")
+        self.assertEqual(b.updated_at.__class__.__name__, "datetime")
 
-        obj = BaseModel()
-        my_dict = obj.__dict__
-        self.assertIn("created_at", my_dict)
-        self.assertIn("updated_at", my_dict)
-        self.assertIn("id", my_dict)
+    def test_03_adding_extra_parameters(self):
+        """Test for manually adding parameters"""
+        b = BaseModel()
+        b.first_name = "Ophelie"
+        b.age = 24
+        self.assertTrue(hasattr(b, "first_name"))
+        self.assertTrue(hasattr(b, "age"))
+        self.assertEqual(type(b.first_name), str)
+        self.assertEqual(type(b.age), int)
 
-    def test_str(self):
-        """
-        test the format of str
-        """
+    def test_04_to_dict(self):
+        """Test to validate to_dict"""
+        b = BaseModel()
+        b.first_name = "Huy"
+        b.age = 18
+        d = b.to_dict()
+        self.assertTrue('first_name' in d)
+        self.assertTrue('age' in d)
+        self.assertTrue('id' in d)
+        self.assertTrue('created_at' in d)
+        self.assertTrue('updated_at' in d)
+        self.assertTrue('__class__' in d)
 
-        obj = BaseModel()
-        obj_str = "[BaseModel] ({}) {}".format(obj.id, obj.__dict__)
-        self.assertEqual(obj_str, str(obj))
+    def test_05_manual_kwargs(self):
+        """Test for manually entering in kwargs"""
+        b = BaseModel(id=uuid.uuid4,
+                      created_at=datetime.now().isoformat(),
+                      updated_at=datetime.now().isoformat(),
+                      name="John",
+                      age=89)
+        self.assertTrue(hasattr(b, "id"))
+        self.assertTrue(hasattr(b, "created_at"))
+        self.assertTrue(hasattr(b, "updated_at"))
+        self.assertTrue(hasattr(b, "name"))
+
+    def test_06_attr_not_none(self):
+        """ Test attribut BaseModel """
+        self.assertIsNotNone(self.base1.id)
+        self.assertIsNotNone(self.base1.created_at)
+        self.assertIsNotNone(self.base1.updated_at)
+
+    def test_07_str_save(self):
+        """ test methods save and str"""
+        string = "[BaseModel] ({}) {}".format(self.base1.id, self.base1.__dict__)
+        self.assertEqual(string, self.base1.__str__())
+        old_created_at = self.base1.created_at
+        old_updated_at = self.base1.updated_at
+        self.base1.save()
+        new_created_at = self.base1.created_at
+        new_updated_at = self.base1.updated_at
+        self.assertNotEqual(old_updated_at, new_updated_at)
+        self.assertEqual(old_created_at, new_created_at)
+
+if __name__ == '__main__':
+    unittest.main()

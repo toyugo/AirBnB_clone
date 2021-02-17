@@ -57,3 +57,5 @@ class TestBaseModel(unittest.TestCase):
         obj = BaseModel()
         obj_str = "[BaseModel] ({}) {}".format(obj.id, obj.__dict__)
         self.assertEqual(obj_str, str(obj))
+if __name__ == "__main__":
+    unittest.main()

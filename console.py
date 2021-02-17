@@ -29,18 +29,18 @@ class HBNBCommand(cmd.Cmd):
         """
         Deletes
         """
-        item = line.split()
+        itemA = line.split()
         old_storage = storage.all()
         if line == "":
             print("** class name missing **")
-        elif line not in self.classes:
+        elif line not in self.classe_list:
             print("** class doesn't exist **")
         elif len(line) < 2:
             print("** instance id missing **")
-        elif (item[0] + "." + item[1]) not in storage.all():
+        elif (itemA[0] + "." + itemA[1]) not in storage.all():
             print("** no instance found **")
         else:
-            key = item[0] + "." + item[1]
+            key = itemA[0] + "." + itemA[1]
             if key in old_storage:
                 del old_storage[key]
                 storage.save()
@@ -49,18 +49,18 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints the string representation
         """
-        item = line.split()
+        itemA = line.split()
         old_storage = storage.all()
-        if line == "":
+        if line == "" or itemA == []:
             print("** class name missing **")
-        elif line not in self.classes:
-            print("** class doesn't exist **")
         elif len(line) < 2:
             print("** instance id missing **")
-        elif (item[0] + "." + item[1]) not in storage.all():
+        elif line not in self.classe_list:
+            print("** class doesn't exist **")
+        elif (itemA[0] + "." + itemA[1]) not in storage.all():
             print("** no instance found **")
         else:
-            key = item[0] + "." + item[1]
+            key = itemA[0] + "." + itemA[1]
             if key in old_storage:
                 print(old_storage[key])
 
@@ -77,5 +77,25 @@ class HBNBCommand(cmd.Cmd):
                 obj.save()
                 print(obj.id)
 
+    def do_all(self, line):
+        """
+        Prints all string representation of all
+        instances based or not on the class name
+        """
+        old_storage = storage.all()
+        dico = []
+        if line:
+            if line not in self.classe_list:
+                print("** class doesn't exist **")
+            else:
+                for k in old_storage:
+                    cls_id = key.split(".")
+                    if cls_id[0] == line:
+                        dico.append(old_storage[key].__str__())
+                print(dico)
+        else:
+            for key in stor_a:
+                dico.append(old_storage[key].__str__())
+            print(dico)
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

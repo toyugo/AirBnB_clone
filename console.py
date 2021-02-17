@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Count instance
         """
-        if line in self.classes:
+        if line in self.classe_list:
             count = 0
             old_storage = storage.all()
             for k, v in old_storage.items():

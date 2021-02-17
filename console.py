@@ -95,5 +95,26 @@ class HBNBCommand(cmd.Cmd):
                 dico.append(old_storage[key].__str__())
             print(dico)
 
+    def do_update(self, arg):
+        """Updates an instance"""
+        itemA = line.split()
+        old_storage = storage.all()
+        if line == "" or itemA == []:
+            print("** class name missing **")
+        elif itemA[0] not in self.classe_list:
+            print("** class doesn't exist **")
+        elif len(itemA) < 2:
+            print("** instance id missing **")
+        elif (itemA[0] + "." + itemA[1]) not in storage.all():
+            print("** no instance found **")
+        elif len(itemA) < 3:
+            print("** attribute name missing **")
+        elif len(itemA) < 4:
+            print("** value missing **")
+        else:
+            key = itemA[0] + "." + itemA[1]
+            setattr(old_storage[key], itemA[2], itemA[3])
+            storage.save()
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

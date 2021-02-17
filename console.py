@@ -11,6 +11,12 @@ class HBNBCommand(cmd.Cmd):
         "BaseModel",
     }
 
+    def emptyline(self):
+        """
+        Emptyline method to do nothing when press enter
+        """
+        pass
+
     def do_EOF(self, line):
         return True
 
@@ -30,5 +36,6 @@ class HBNBCommand(cmd.Cmd):
                 obj = BaseModel()
                 obj.save()
                 print(obj.id)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

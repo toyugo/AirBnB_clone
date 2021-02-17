@@ -77,5 +77,23 @@ class HBNBCommand(cmd.Cmd):
                 obj.save()
                 print(obj.id)
 
+    def do_all(self, line):
+        """Prints all"""
+        old_storage = storage.all()
+        dico = []
+        if line:
+            if line not in self.classe_list:
+                print("** class doesn't exist **")
+            else:
+                for key in old_storage:
+                    itemA = key.split(".")
+                    if itemA[0] == line:
+                        dico.append(old_storage[key].__str__())
+                print(dico)
+        else:
+            for key in old_storage:
+                dico.append(old_storage[key].__str__())
+            print(dico)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

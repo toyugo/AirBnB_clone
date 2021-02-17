@@ -28,12 +28,15 @@ class FileStorage():
         for k in self.__objects:
             dico[k] = self.__objects[k].to_dict()
         with open(self.__file_path, mode="w") as f:
-            json.dump(new_dict, f)
+            json.dump(dico, f)
 
     def reload(self):
         """Deserialize the JSON v = dictionnary obj json """
-        with open(self.__file_path) as f:
-            json_file = json.load(f)
-            for k, v in json_file.items():
-                key = v["__class__"]
-                self.new(eval(key)(**v))
+        try:
+            with open(self.__file_path) as f:
+                json_file = json.load(f)
+                for k, v in json_file.items():
+                    key = v["__class__"]
+                    self.new(eval(key)(**v))
+        except:
+            pass

@@ -32,10 +32,11 @@ class BaseModel():
         return "[{}] ({}) {}".format(nameClass, idValue, allAttribute)
 
     def save(self):
-        """ Save """
+        """ description dict """
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """ description dict """
         dict = {}
         for i in self.__dict__:
             if i == "updated_at" or i == "created_at":

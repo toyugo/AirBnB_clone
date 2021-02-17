@@ -16,7 +16,6 @@ class FileStorage():
 
     def new(self, obj):
         """ new method """
-        print("create new")
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects.update({key: obj})
 

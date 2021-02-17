@@ -24,6 +24,26 @@ class HBNBCommand(cmd.Cmd):
         """Quit command"""
         return True
 
+    def do_destroy(self, line):
+        """
+        Deletes
+        """
+        item = line.split()
+        old_storage = storage.all()
+        if line == "":
+            print("** class name missing **")
+        elif line not in self.classes:
+            print("** class doesn't exist **")
+        elif len(line) < 2:
+            print("** instance id missing **")
+        elif (item[0] + "." + item[1]) not in storage.all():
+            print("** no instance found **")
+        else:
+            key = item[0] + "." + item[1]
+            if key in old_storage:
+                del old_storage[key]
+                storage.save()
+
     def do_create(self, line):
         """create <class> to create an object
         """

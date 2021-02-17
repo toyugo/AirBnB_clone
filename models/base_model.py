@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-    BaseModel class 
-"""
+""" BaseModel class """
 from datetime import datetime
 import models
 import uuid
@@ -32,11 +30,10 @@ class BaseModel():
         return "[{}] ({}) {}".format(nameClass, idValue, allAttribute)
 
     def save(self):
-        """ description dict """
+        """ Save """
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """ description dict """
         dict = {}
         for i in self.__dict__:
             if i == "updated_at" or i == "created_at":

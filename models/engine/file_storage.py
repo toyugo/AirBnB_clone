@@ -12,7 +12,7 @@ class FileStorage():
 
     def all(self):
         """ all method """
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """ new method """
@@ -21,9 +21,19 @@ class FileStorage():
         self.__objects.update({key: obj})
 
     def save(self):
-        """Serialize __objects to  JSON ."""
-        pass
+        """
+        serializes __objects to the JSON
+        """
+        dico = {}
+        for k in self.__objects:
+            dico[k] = self.__objects[k].to_dict()
+        with open(self.__file_path, mode="w") as f:
+            json.dump(new_dict, f)
 
     def reload(self):
-        """Deserialize the JSON """
-        pass
+        """Deserialize the JSON v = dictionnary obj json """
+        with open(self.__file_path) as f:
+            json_file = json.load(f)
+            for k, v in json_file.items():
+                key = v["__class__"]
+                self.new(eval(key)(**v))

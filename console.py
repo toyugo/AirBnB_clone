@@ -77,25 +77,5 @@ class HBNBCommand(cmd.Cmd):
                 obj.save()
                 print(obj.id)
 
-    def do_all(self, line):
-        """
-        Prints all string representation of all
-        instances based or not on the class name
-        """
-        old_storage = storage.all()
-        dico = []
-        if line:
-            if line not in self.classe_list:
-                print("** class doesn't exist **")
-            else:
-                for k in old_storage:
-                    cls_id = key.split(".")
-                    if cls_id[0] == line:
-                        dico.append(old_storage[key].__str__())
-                print(dico)
-        else:
-            for key in stor_a:
-                dico.append(old_storage[key].__str__())
-            print(dico)
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

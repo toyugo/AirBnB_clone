@@ -53,10 +53,10 @@ class HBNBCommand(cmd.Cmd):
         old_storage = storage.all()
         if line == "" or itemA == []:
             print("** class name missing **")
-        elif len(line) < 2:
-            print("** instance id missing **")
-        elif line not in self.classe_list:
+        elif itemA[0] not in self.classe_list:
             print("** class doesn't exist **")
+        elif len(itemA) < 2:
+            print("** instance id missing **")
         elif (itemA[0] + "." + itemA[1]) not in storage.all():
             print("** no instance found **")
         else:

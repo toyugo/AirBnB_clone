@@ -1,3 +1,0 @@
-"""
-Test console module
-"""

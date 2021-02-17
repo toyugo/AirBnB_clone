@@ -44,6 +44,25 @@ class HBNBCommand(cmd.Cmd):
                 del old_storage[key]
                 storage.save()
 
+    def do_show(self, arg):
+        """
+        Prints the string representation
+        """
+        item = line.split()
+        old_storage = storage.all()
+        if line == "":
+            print("** class name missing **")
+        elif line not in self.classes:
+            print("** class doesn't exist **")
+        elif len(line) < 2:
+            print("** instance id missing **")
+        elif (item[0] + "." + item[1]) not in storage.all():
+            print("** no instance found **")
+        else:
+            key = args[0] + "." + args[1]
+            if key in old_storage:
+                print(old_storage[key])
+
     def do_create(self, line):
         """create <class> to create an object
         """

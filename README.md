@@ -26,7 +26,13 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ### List of command
 ![GitHub function list](/img/Function_list.png)
  
-### Examples
+### List of object
+*Review
+*User
+*Place
+*Amenity
+*State
+*City
 
 ### Contributor
 Olivier Guyot <>

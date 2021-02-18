@@ -10,6 +10,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     class_list = {
         "BaseModel",
+        "User"
     }
 
     def emptyline(self):

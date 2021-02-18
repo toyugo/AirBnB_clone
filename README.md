@@ -27,6 +27,9 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ![GitHub function list](/img/Function_list.png)
  
 ### List of possible object
+
+**Common base attribute**
+
 *Base Model : id, created_at, updated_at
 
 It's the base of all other object-attribute

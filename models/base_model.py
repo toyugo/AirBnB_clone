@@ -11,7 +11,8 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """ Init """
         form = "%Y-%m-%dT%H:%M:%S.%f"
-        if kwargs: #**kwargs is never none
+        # Do not use kwargs is not None
+        if kwargs:
             for k, v in kwargs.items():
                 if k == "created_at" or k == "updated_at":
                     self.__dict__[k] = datetime.strptime(v, form)
@@ -39,6 +40,7 @@ class BaseModel():
         dict = {}
         for i in self.__dict__:
             if i == "updated_at" or i == "created_at":
+                # getattr to use i as argument
                 dict[i] = getattr(self, i).isoformat()
             else:
                 dict[i] = getattr(self, i)

@@ -21,12 +21,12 @@ This project is the first step and built the back-end console of the website. Th
 
 The back end system is based on 3 components:
 
-1. The storage engine, base on a Json file, it will have to handle all the process of serialization/deserialization of objects.
+1. **The storage engine**, based on a JSON file, it will have to handle all the process of serialization/deserialization of objects.
 
-2. The model system, this system contain all the function in order to create, update, delete, display the difference objects created. 
-It will handle the creation of object by uniq ID, update creation time and all attribute depending of the specify object.
+2. **The model system**, this system contains all the function in order to create, update, delete, display any object stored in the storage engine. 
+It will handle the creation of object by uniq ID, update creation time and all others attribute depending of the specify object.
 
-3. The console system which is a basic console used to control the storage_engine and use any function of the model system.
+3. **The console system**, is a basic console used to control the storage_engine by using any function of the model system.
 
 ### Description of the consol
 

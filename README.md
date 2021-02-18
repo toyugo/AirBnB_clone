@@ -29,13 +29,14 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ### Example
 
 (hbnb) create BaseModel
->>> 8ba06379-fd66-445c-aa16-e77a70be60f6
+OUTPUT: 8ba06379-fd66-445c-aa16-e77a70be60f6
 
 (hbnb) create User
->>> ca79618f-36fe-41bb-8219-c2d360ff47d9
+OUTPUT: ca79618f-36fe-41bb-8219-c2d360ff47d9
 
 (hbnb) show User ca79618f-36fe-41bb-8219-c2d360ff47d9
->>> [User] (ca79618f-36fe-41bb-8219-c2d360ff47d9) {'created_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447214), 'id': 'ca79618f-36fe-41bb-8219-c2d360ff47d9', 'updated_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447243)}
+OUTPUT: [User] (ca79618f-36fe-41bb-8219-c2d360ff47d9) {'created_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447214), 'id': 'ca79618f-36fe-41bb-8219-c2d360ff47d9', 'updated_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447243)}
+
 ### List of object-attribute
 
 **Common base attribute**

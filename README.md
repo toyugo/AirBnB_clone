@@ -15,7 +15,7 @@
 
 ### Description of the project
 
-This project is part of a larger project in order to build a copy of the AirBnb web site. The global project will build the website from scratch, from back-end to front-end system. 
+This project is part of a larger project in order to build a copy of the AirBnb web site (from back-end to front-end).
 
 This project is the first step and built the back-end console of the website. This back-end is created from scratch and do not use any framework as learning purpose.
 

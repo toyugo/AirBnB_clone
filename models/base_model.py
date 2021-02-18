@@ -11,7 +11,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """ Init """
         form = "%Y-%m-%dT%H:%M:%S.%f"
-        if kwargs is not None:
+        if kwargs: #**kwargs is never none
             for k, v in kwargs.items():
                 if k == "created_at" or k == "updated_at":
                     self.__dict__[k] = datetime.strptime(v, form)
@@ -21,7 +21,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            # models.storage.new(self)
+        models.storage.new(self)
 
     def __str__(self):
         """ Print name and other info """

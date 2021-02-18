@@ -24,7 +24,7 @@ It will handle the creation of object by uniq ID, update creation time and all o
 *Enter any command
 
 ### List of command
-![Function_list](https://github.com/toyugo/AirBnB_clone/tree/main/img/Function_list.png?raw=true)
+![GitHub function list](/images/Function_list.png)
  
 ### Examples
 

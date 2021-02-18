@@ -36,10 +36,7 @@ class FileStorage():
                 json_obj = json.load(f)
                 for k, v in json_obj.items():
                     classeName = v["__class__"]
-                    obj = eval(classeName)(**v) #new(object)
-                    self.new(obj) #Store Object
+                    obj = eval(classeName)(**v)
+                    self.new(obj)
         except:
             pass
-# dico = {"created_at": "2021-02-18T09:28:37.873624"}
-# toto = BaseModel(**dico)
-# => Stock la string repr 

@@ -17,11 +17,11 @@ It will handle the creation of object by uniq ID, update creation time and all o
 3. **The console system**, is a basic console used to control the storage_engine by using any function of the model system.
 
 ### How to use
-*Download all part of the project
+* Download all part of the project
 
-*Launch the console.py
+* Launch the console.py
 
-*Enter any command
+* Enter any command
 
 ### List of command
 ![GitHub function list](/img/Function_list.png)
@@ -30,23 +30,23 @@ It will handle the creation of object by uniq ID, update creation time and all o
 
 **Common base attribute**
 
-***Base Model** : id, created_at, updated_at
+* **Base Model** : id, created_at, updated_at
 
 *It's the base of all other object-attribute*
 
 **Specific object-attribute**
 
-***User** : email, password, first_name, last_name
+* **User** : email, password, first_name, last_name
 
-***Review** : place_id, user_id, text
+* **Review** : place_id, user_id, text
 
-***Place** : city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
+* **Place** : city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
 
-***Amenity** : name
+* **Amenity** : name
 
-***State** : name
+* **State** : name
 
-***City** : state_id, name
+* **City** : state_id, name
 
 ### Contributor
 Olivier Guyot <>

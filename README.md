@@ -32,6 +32,7 @@ It will handle the creation of object by uniq ID, update creation time and all o
 It's the base of all other object-attribute
 
 **Specific object-attribute**
+
 *User : email, password, first_name, last_name
 
 *Review : place_id, user_id, text

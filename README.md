@@ -30,9 +30,9 @@ It will handle the creation of object by uniq ID, update creation time and all o
 
 **Common base attribute**
 
-*Base Model : id, created_at, updated_at
+***Base Model** : id, created_at, updated_at
 
-It's the base of all other object-attribute
+*It's the base of all other object-attribute*
 
 **Specific object-attribute**
 

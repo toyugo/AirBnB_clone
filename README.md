@@ -24,7 +24,7 @@ It will handle the creation of object by uniq ID, update creation time and all o
 *Enter any command
 
 ### List of command
-![GitHub function list](/images/Function_list.png)
+![GitHub function list](/img/Function_list.png)
  
 ### Examples
 

@@ -36,17 +36,17 @@ It's the base of all other object-attribute
 
 **Specific object-attribute**
 
-*User : email, password, first_name, last_name
+***User** : email, password, first_name, last_name
 
-*Review : place_id, user_id, text
+***Review** : place_id, user_id, text
 
-*Place : city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
+***Place** : city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
 
-*Amenity : name
+***Amenity** : name
 
-*State : name
+***State** : name
 
-*City : state_id, name
+***City** : state_id, name
 
 ### Contributor
 Olivier Guyot <>

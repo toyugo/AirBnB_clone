@@ -8,7 +8,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = "(hbnb) "
-    classe_list = {
+    class_list = {
         "BaseModel",
     }
 
@@ -18,115 +18,80 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    def do_EOF(self, line):
+    def do_EOF(self, arg):
         return True
 
-    def do_quit(self, line):
+    def do_quit(self, arg):
         """Quit command"""
         return True
 
-    def do_destroy(self, line):
+    def do_destroy(self, arg):
         """
         Deletes
         """
-        itemA = line.split()
-        old_storage = storage.all()
-        if line == "":
+        item_arg = arg.split()
+        StorageAll = storage.all()
+        if len(arg) == 0:
             print("** class name missing **")
-        elif line not in self.classe_list:
+        elif item_arg[0] not in self.class_list:
             print("** class doesn't exist **")
-        elif len(line) < 2:
+        elif len(item_arg) < 2:
             print("** instance id missing **")
-        elif (itemA[0] + "." + itemA[1]) not in storage.all():
+        elif (item_arg[0] + "." + item_arg[1]) not in StorageAll:
             print("** no instance found **")
         else:
-            key = itemA[0] + "." + itemA[1]
-            if key in old_storage:
-                del old_storage[key]
+            key = item_arg[0] + "." + item_arg[1]
+            if key in StorageAll:
+                del StorageAll[key]
                 storage.save()
 
-    def do_show(self, line):
-        """
-        Prints the string representation
-        """
-        itemA = line.split()
-        old_storage = storage.all()
-        if line == "" or itemA == []:
+    def do_show(self, arg):
+        """Prints the string representation"""
+        item_arg = arg.split()
+        StorageAll = storage.all()
+        if len(arg) == 0:
             print("** class name missing **")
-        elif itemA[0] not in self.classe_list:
+        elif item_arg[0] not in self.class_list:
             print("** class doesn't exist **")
-        elif len(itemA) < 2:
+        elif len(item_arg) < 2:
             print("** instance id missing **")
-        elif (itemA[0] + "." + itemA[1]) not in storage.all():
+        elif (item_arg[0] + "." + item_arg[1]) not in StorageAll:
             print("** no instance found **")
         else:
-            key = itemA[0] + "." + itemA[1]
-            if key in old_storage:
-                print(old_storage[key])
+            key = item_arg[0] + "." + item_arg[1]
+            if key in StorageAll:
+                print(StorageAll[key])
 
-    def do_create(self, line):
-        """create <class> to create an object
-        """
-        if len(line) == 0:
+    def do_create(self, arg):
+        """create <class> to create an object"""
+        item_arg = arg.split()
+        if len(arg) == 0:
             print("** class name missing **")
-        elif line not in self.classe_list:
+        elif item_arg[0] not in self.class_list:
             print("** class doesn't exist **")
         else:
-            if line == "BaseModel":
-                obj = BaseModel()
-                obj.save()
-                print(obj.id)
+            for obj in self.class_list:
+                if arg == obj:
+                    newObj = eval(obj + "()")
+                    newObj.save()
+                    print(newObj.id)
 
-    def do_all(self, line):
-        """Prints all"""
-        old_storage = storage.all()
-        dico = []
-        if line:
-            if line not in self.classe_list:
-                print("** class doesn't exist **")
-            else:
-                for key in old_storage:
-                    itemA = key.split(".")
-                    if itemA[0] == line:
-                        dico.append(old_storage[key].__str__())
-                print(dico)
-        else:
-            for key in old_storage:
-                dico.append(old_storage[key].__str__())
-            print(dico)
-
-    def do_update(self, arg):
-        """Updates an instance"""
-        itemA = line.split()
-        old_storage = storage.all()
-        if line == "" or itemA == []:
-            print("** class name missing **")
-        elif itemA[0] not in self.classe_list:
+    def do_all(self, arg):
+        """Prints all string representation"""
+        item_arg = arg.split()
+        StorageAll = storage.all()
+        listAll = []
+        if len(arg) == 0:
+            for k in StorageAll:
+                listAll.append(str(StorageAll[k]))
+            print(listAll)
+        elif item_arg[0] not in self.class_list:
             print("** class doesn't exist **")
-        elif len(itemA) < 2:
-            print("** instance id missing **")
-        elif (itemA[0] + "." + itemA[1]) not in storage.all():
-            print("** no instance found **")
-        elif len(itemA) < 3:
-            print("** attribute name missing **")
-        elif len(itemA) < 4:
-            print("** value missing **")
         else:
-            key = itemA[0] + "." + itemA[1]
-            setattr(old_storage[key], itemA[2], itemA[3])
-            storage.save()
-
-    def do_count(self, line):
-        """
-        Count instance
-        """
-        if line in self.classe_list:
-            count = 0
-            old_storage = storage.all()
-            for k, v in old_storage.items():
-                if line == v.__class__.__name__:
-                    count += 1
-            print(count)
-
+            for k in StorageAll:
+                tmp = k.split(".")
+                if tmp[0] == item_arg[0]:
+                    listAll.append(str(StorageAll[k]))
+            print(listAll)
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

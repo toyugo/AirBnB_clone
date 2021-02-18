@@ -29,9 +29,11 @@ It will handle the creation of object by uniq ID, update creation time and all o
 
 3. **The console system**, is a basic console used to control the storage_engine by using any function of the model system.
 
-### How to start it
+### How to use
 *Download all part of the project
+
 *Launch the console.py
+
 *Enter any command
 
 ### List of command

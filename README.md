@@ -27,17 +27,22 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ![GitHub function list](/img/Function_list.png)
  
 ### List of possible object
-*Review
+*Base Model : id, created_at, updated_at
 
-*User
+It's the base of all other object-attribute
 
-*Place
+**Specific object-attribute**
+*User : email, password, first_name, last_name
 
-*Amenity
+*Review : place_id, user_id, text
 
-*State
+*Place : city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
 
-*City
+*Amenity : name
+
+*State : name
+
+*City : state_id, name
 
 ### Contributor
 Olivier Guyot <>

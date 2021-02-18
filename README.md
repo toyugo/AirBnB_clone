@@ -27,20 +27,18 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ![GitHub function list](/img/Function_list.png)
  
 ### Example
+```
 vagrant@vagrant-ubuntu-trusty-64:$ python3 console.py
 
 (hbnb) create BaseModel
-
-OUTPUT: 8ba06379-fd66-445c-aa16-e77a70be60f6
+8ba06379-fd66-445c-aa16-e77a70be60f6
 
 (hbnb) create User
-
-OUTPUT: ca79618f-36fe-41bb-8219-c2d360ff47d9
+ca79618f-36fe-41bb-8219-c2d360ff47d9
 
 (hbnb) show User ca79618f-36fe-41bb-8219-c2d360ff47d9
-
-OUTPUT: [User] (ca79618f-36fe-41bb-8219-c2d360ff47d9) {'created_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447214), 'id': 'ca79618f-36fe-41bb-8219-c2d360ff47d9', 'updated_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447243)}
-
+[User] (ca79618f-36fe-41bb-8219-c2d360ff47d9) {'created_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447214), 'id': 'ca79618f-36fe-41bb-8219-c2d360ff47d9', 'updated_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447243)}
+```
 ### List of object-attribute
 
 **Common base attribute**

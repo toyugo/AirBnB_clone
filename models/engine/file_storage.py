@@ -27,15 +27,19 @@ class FileStorage():
         for k in self.__objects:
             dico[k] = self.__objects[k].to_dict()
         with open(self.__file_path, mode="w") as f:
-            json.dump(dico, f)
+            json.dump(dico, f, indent=6)
 
     def reload(self):
         """Deserialize the JSON v = dictionnary obj json """
         try:
             with open(self.__file_path) as f:
-                json_file = json.load(f)
-                for k, v in json_file.items():
-                    key = v["__class__"]
-                    self.new(eval(key)(**v))
+                json_obj = json.load(f)
+                for k, v in json_obj.items():
+                    classeName = v["__class__"]
+                    obj = eval(classeName)(**v) #new(object)
+                    self.new(obj) #Store Object
         except:
             pass
+# dico = {"created_at": "2021-02-18T09:28:37.873624"}
+# toto = BaseModel(**dico)
+# => Stock la string repr 

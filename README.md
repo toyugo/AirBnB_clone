@@ -15,11 +15,20 @@
 
 ### Description of the project
 
-This project is part of a larger project which  will produce a copy of the AirBnb web site. 
+This project is part of a larger project which  will produce a copy of the AirBnb web site. The global project will build the website from scratch, frome the back-end to front-end system. 
 
-For this part, we will create the back-end console of the website. This back-end is created from scratch and do not use any framework as learning project.
+This project is the first step and i have built the back-end console of the website. This back-end is created from scratch and do not use any framework as learning purpose.
 
-### Description of the command interpreter
+There will be two main system :
+
+The storage engine, base on a Json file, it will have to handle all the process of serialization/deserialization of objects.
+
+The model system, this system contain all the function in order to create, update, delete, display the difference objects created. 
+It will handle the creation of object by uniq ID, update creation time and all attribute depending of the specify object.
+
+The console is a basic consol which can be used to control the storage_engine and use any function of the model system.
+
+### Description of the consol
 
 ### How to start it
 

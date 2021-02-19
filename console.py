@@ -139,7 +139,9 @@ class HBNBCommand(cmd.Cmd):
             if className_Stored[0] == className:
                 count += 1
         print(count)
+
     def default(self, arg):
+        """default execution"""
         item_arg = arg.split(".")
         if item_arg[1] == "count()":
             self.do_count(item_arg[0])

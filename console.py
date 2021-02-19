@@ -127,8 +127,6 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
         else:
             key = item_arg[0] + "." + item_arg[1]
-            print(StorageAll[key])
-            print(type(StorageAll[key]))
             setattr(StorageAll[key], item_arg[2], item_arg[3])
             storage.save()
 if __name__ == '__main__':

@@ -30,14 +30,21 @@ It will handle the creation of object by uniq ID, update creation time and all o
 ```
 vagrant@vagrant-ubuntu-trusty-64:$ python3 console.py
 
-(hbnb) create BaseModel
-8ba06379-fd66-445c-aa16-e77a70be60f6
-
 (hbnb) create User
 ca79618f-36fe-41bb-8219-c2d360ff47d9
 
 (hbnb) show User ca79618f-36fe-41bb-8219-c2d360ff47d9
 [User] (ca79618f-36fe-41bb-8219-c2d360ff47d9) {'created_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447214), 'id': 'ca79618f-36fe-41bb-8219-c2d360ff47d9', 'updated_at': datetime.datetime(2021, 2, 18, 23, 52, 19, 447243)}
+
+(hbnb) update User ca79618f-36fe-41bb-8219-c2d360ff47d9 mail new@mail.com
+
+(hbnb) destroy User ca79618f-36fe-41bb-8219-c2d360ff47d9
+
+(hbnb) all
+["[User] (532a604c-62d6-44b8-8c81-48be74fd7390) {'id': '532a604c-62d6-44b8-8c81-48be74fd7390', 'updated_at': datetime.datetime(2021, 2, 19, 0, 1, 20, 822792), 'created_at': datetime.datetime(2021, 2, 19, 0, 1, 20, 822767), 'mail': 'new@mail.com'}"]
+
+(hbnb) all User
+["[User] (532a604c-62d6-44b8-8c81-48be74fd7390) {'id': '532a604c-62d6-44b8-8c81-48be74fd7390', 'updated_at': datetime.datetime(2021, 2, 19, 0, 1, 20, 822792), 'created_at': datetime.datetime(2021, 2, 19, 0, 1, 20, 822767), 'mail': 'new@mail.com'}"]
 ```
 ### List of object-attribute
 

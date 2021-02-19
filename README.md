@@ -48,11 +48,9 @@ ca79618f-36fe-41bb-8219-c2d360ff47d9
 ```
 ### List of object-attribute
 
-**Common base attribute**
+**Common base attribute** *It's the base of all other object-attribute*
 
 * **Base Model** : id, created_at, updated_at
-
-*It's the base of all other object-attribute*
 
 **Specific object-attribute**
 

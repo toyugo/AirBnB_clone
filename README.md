@@ -7,7 +7,7 @@ This project is part of a larger project in order to build a copy of the AirBnb 
 This project is the first step and built the back-end console of the website. This back-end is created from scratch and do not use any framework as learning purpose.
 
 ### Description of the back-end system
-The back-end system is based on 3 components build with Python 3:
+The back-end system is based on 3 components coded in Python 3:
 
 1. **The storage engine**, based on a JSON file, it handle all the process of serialization/deserialization of objects.
 

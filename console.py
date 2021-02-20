@@ -9,6 +9,8 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import json
+import ast
 
 
 class HBNBCommand(cmd.Cmd):
@@ -150,6 +152,7 @@ class HBNBCommand(cmd.Cmd):
             function_name = item_arg[1]
             uid_value = item_arg[1].split("\"")
             arg_com = function_name.split(',')
+            arg_comB = function_name.split(', {')
             if function_name == "all()":
                 self.do_all(objectName)
             elif function_name == "count()":
@@ -158,7 +161,20 @@ class HBNBCommand(cmd.Cmd):
                 self.do_show(objectName + " " + uid_value[1])
             elif function_name == "destroy(\"" + uid_value[1] + "\")":
                 self.do_destroy(objectName + " " + uid_value[1])
-            if len(arg_com) == 3:
+            if len(arg_comB) == 2:
+                arg_comB[1] = arg_comB[1][0:len(arg_comB[1]) - 1]
+                tmp1 = "{" + arg_comB[1]
+                syntax = "update(\"{}\", {})"
+                if function_name == syntax.format(uid_value[1], tmp1):
+                    tmp = tmp1.replace("'", "\"")
+                    d = json.loads(tmp)
+                    syntax = "{} {} {} {}"
+                    for k in d:
+                        self.do_update(syntax.format(objectName,
+                                                     uid_value[1],
+                                                     k,
+                                                     d[k]))
+            elif len(arg_com) == 3:
                 arg_com[1] = arg_com[1][2: len(arg_com[1]) - 1]
                 arg_com[2] = arg_com[2][2: len(arg_com[2]) - 2]
                 syntax = "update(\"{}\", \"{}\", \"{}\")"

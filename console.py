@@ -10,6 +10,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = "(hbnb) "
@@ -145,18 +146,30 @@ class HBNBCommand(cmd.Cmd):
         function_name = ""
         args = arg.split('.')
         objectName = item_arg[0]
-        function_name = item_arg[1]
-        uid_value = item_arg[1].split("\"")
-        if function_name == "all()":
-            self.do_all(objectName)
-        elif function_name == "count()":
-            self.do_count(objectName)
-        elif function_name == "show(\"" + uid_value[1] + "\")":
-            self.do_show(objectName + " " + uid_value[1])
-        elif function_name == "destroy(\"" + uid_value[1] + "\")":
-            self.do_destroy(objectName + " " + uid_value[1])
-        elif function_name == "update()":
-            self.do_update(objectName)
+        if len(item_arg) >= 2:
+            function_name = item_arg[1]
+            uid_value = item_arg[1].split("\"")
+            arg_com = function_name.split(',')
+            if function_name == "all()":
+                self.do_all(objectName)
+            elif function_name == "count()":
+                self.do_count(objectName)
+            elif function_name == "show(\"" + uid_value[1] + "\")":
+                self.do_show(objectName + " " + uid_value[1])
+            elif function_name == "destroy(\"" + uid_value[1] + "\")":
+                self.do_destroy(objectName + " " + uid_value[1])
+            if len(arg_com) == 3:
+                arg_com[1] = arg_com[1][2: len(arg_com[1]) - 1]
+                arg_com[2] = arg_com[2][2: len(arg_com[2]) - 2]
+                syntax = "update(\"{}\", \"{}\", \"{}\")"
+                if function_name == syntax.format(uid_value[1],
+                                                  arg_com[1],
+                                                  arg_com[2]):
+                    syntax = "{} {} {} {}"
+                    self.do_update(syntax.format(objectName,
+                                                 uid_value[1],
+                                                 arg_com[1],
+                                                 arg_com[2]))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

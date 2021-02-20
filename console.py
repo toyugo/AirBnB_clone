@@ -10,7 +10,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = "(hbnb) "
@@ -143,7 +142,21 @@ class HBNBCommand(cmd.Cmd):
     def default(self, arg):
         """default execution"""
         item_arg = arg.split(".")
-        if item_arg[1] == "count()":
-            self.do_count(item_arg[0])
+        function_name = ""
+        args = arg.split('.')
+        objectName = item_arg[0]
+        function_name = item_arg[1]
+        uid_value = item_arg[1].split("\"")
+        if function_name == "all()":
+            self.do_all(objectName)
+        elif function_name == "count()":
+            self.do_count(objectName)
+        elif function_name == "show(\"" + uid_value[1] + "\")":
+            self.do_show(objectName + " " + uid_value[1])
+        elif function_name == "destroy(\"" + uid_value[1] + "\")":
+            self.do_destroy(objectName + " " + uid_value[1])
+        elif function_name == "update()":
+            self.do_update(objectName)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

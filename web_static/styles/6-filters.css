@@ -1,0 +1,73 @@
+.container .filters{
+    background-color: rgb(253, 253, 253);
+    border: solid 1px #d3d3c3;
+    border-radius: 4px;
+    height: 70px;
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    display: flex;
+}
+section button{
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    padding: 0px;
+    position: absolute;
+    right: 30px;;
+    margin-top: 10px;;
+}
+section button:hover {
+    opacity: 0.9;
+}
+.locations, .amenities{
+    width: 25%;
+    height: 100%;
+}
+.locations {
+    border-right: #DDDDDD 1px solid;
+}
+
+.filters h3, .filters h4{
+    text-align: left;
+    margin-left: 45px;
+}
+.filters h3{
+    margin-top: 12.5px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.filters h4 {
+    margin-top: 0em;
+    font-weight: 400;
+}
+
+.popover {
+    visibility: hidden;
+    background-color:#FAFAFA;
+    margin-top: 22px;
+    padding-top: 23px;
+    padding-bottom: 30px;
+    border: #DDDDDD 1px solid;
+    z-index: 10;
+}
+.locations:hover .popover,.amenities:hover .popover{
+    visibility: visible;
+}
+.popover li, .popover ul{
+    list-style:none;
+    text-align: left;
+    margin: 5px;
+}
+.popover h2{
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.popover .text{
+    padding-left: 8px;
+    margin: 5px;
+}

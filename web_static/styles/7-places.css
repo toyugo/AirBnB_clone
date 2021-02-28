@@ -1,0 +1,27 @@
+.places{
+    padding-left: 30px;
+    margin: 0px auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.places h1{
+    font-size: 30px;
+    line-height: 1em;;
+}
+.places article{
+
+    width: 390px;
+    padding : 20px;
+    margin: 30px;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 1em;;
+}
+.title{
+    width: 100%;
+}

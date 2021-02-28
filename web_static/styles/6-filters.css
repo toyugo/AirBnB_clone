@@ -47,13 +47,15 @@ section button:hover {
 }
 
 .popover {
+    z-index: 1 ;
     visibility: hidden;
     background-color:#FAFAFA;
     margin-top: 22px;
     padding-top: 23px;
     padding-bottom: 30px;
     border: #DDDDDD 1px solid;
-    z-index: 10;
+    position: relative;
+
 }
 .locations:hover .popover,.amenities:hover .popover{
     visibility: visible;

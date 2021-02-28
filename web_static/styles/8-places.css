@@ -89,10 +89,19 @@ article {
     line-height: 15px;
 }
 .description{
-    line-height: px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 0px;
 }
-article h2{
-    font-size: 40px;
+article h4{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 14px;;
+}
+.user h3{
+    font-weight: 400;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    line-height: 10px;
 }

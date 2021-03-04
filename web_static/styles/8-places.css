@@ -53,7 +53,7 @@ article {
 .price_by_night{
     color: #FF5A5F;
     border: #FF5A5F 1px solid;
-    border-radius: 4px;
+    border: solid 4px;
     min-width: 60px;
     height: 60px;
     font-size: 30px;
@@ -91,11 +91,15 @@ article {
 .description{
     margin-left: 20px;
     margin-top: 0px;
+    min-height: 100px;
 }
 article h4{
     margin-top: 2px;
     margin-bottom: 2px;
     font-size: 14px;;
+}
+article h2{
+    font-size: 38px;
 }
 .user h3{
     font-weight: 400;
